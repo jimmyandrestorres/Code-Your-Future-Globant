@@ -1,0 +1,105 @@
+algoritmo primer_ejercicio
+
+	definir base, altura, area, perimetro como real
+
+	escribir "Ingrese el valor de la base del rectangulo"
+	leer base
+	
+	escribir "Ingrese el valor de la altura del rectangulo"
+	leer altura
+
+	area = base * altura
+	
+	perimetro = (2 * altura) + (2 * base)
+
+	escribir "el area del rectangulo es: ", area, " y su perimetro es de: ", perimetro
+
+finalgoritmo
+
+______________________________________________________________________________________________
+
+
+
+algoritmo	segundo_ejercicio
+
+	definir volumen, radio, altura como real
+
+	escribir "Ingrese el valor del radio del cilindro: "
+	leer radio
+	
+	escribir "Ingrese el valor de la altura del cilindro: "
+	leer altura
+	
+	volumen = pi * radio^2 * altura
+
+	escribir "El volumen del cilindro es de: ", volumen.
+
+finalgoritmo
+
+______________________________________________________________________________________________
+
+
+algoritmo	tercer_ejercicio
+
+	definir dias_ingresados, dias, horas, minutos, segundos como real
+
+	escribir "Ingrese el valor de días que desea convertir"
+	leer dias_ingresados
+
+	dias = dias ingresados 
+	horas = dias * 24
+	minutos = horas * 1440
+	segundos = minutos * 86400
+
+	escribir "A partir de la información ingresada: "
+	escribir "Dias: ", dias, " horas: ", horas, " minutos: ", minutos, " segundos: ", segundos
+
+finalgoritmo
+
+
+_______________________________________________________________________________________________________
+
+
+
+algoritmo	cuarto_ejercicio
+
+
+	definir precio_inicial, precio_final, aumento, porcentaje como real
+	
+	escribir "Ingrese el valor inicial del año del producto: "
+	leer precio_inicial
+	
+	escribir "Ingrese el valor final del año del producto: "
+	leer precio_final
+
+	aumento = precio_final - precio_inicial
+	porcentaje = (aumento / precio_inicial) * 100
+
+	escribir "El porcentaje de aumento del producto en el faño fue de: ", porcentaje, " %"
+
+finaltoritmo
+
+___________________________________________________________________________________________________________
+
+
+
+algoritmo quinto_ejercicio
+
+	definir curso, total_boys, total_girls, porce_boys, porce_girls, porce_curso como real
+	
+	escribir "Ingrese el valor de niños en el curso: "
+	leer total_boys
+
+	escribir "Ingrese el valor de niñas en el curso: "
+	leer total_girls
+	
+	curso = total_boys + total_girls
+	porce_boys = (curso / total_boys) * 100
+	porce_girls = (curso / total_girls) * 100
+
+	escribir "el porcentaje de niños del curso es de: ", porce_boys
+	escribir "el porncetaje de niñas del curso es de: ", porce_girls
+
+finalgoritmo	
+
+_____________________________________________________
