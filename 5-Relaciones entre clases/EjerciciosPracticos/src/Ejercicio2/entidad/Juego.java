@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Juego {
     
-    private ArrayList<Jugador> jugadores;
+    public ArrayList<Jugador> jugadores;
     public Revolver revolver;
     
     public Juego(int numJugadores) {
@@ -25,9 +25,9 @@ public class Juego {
     }
     
     public void ronda() {
-        for (Jugador jugador : jugadores) {
+        for (Jugador jugador : jugadores) {            
             if (jugador.disparo(revolver)) {
-                System.out.println("El "+ jugador + " ¡se mojó!");
+                System.out.println("\nEl "+ jugador);
                 return;
             }
         }

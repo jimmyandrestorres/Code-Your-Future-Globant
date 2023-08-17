@@ -17,6 +17,33 @@ public class Jugador {
         this.nombre = "Jugador " + id;
         this.mojado = false;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public boolean getMojado() {
+        return mojado;
+    }
+
+    public void setMojado(boolean mojado) {
+        this.mojado = mojado;
+    }
+    
+    
+    
     //Metodo Disparo 
     public boolean disparo(Revolver  r) {
         if (!this.mojado) {
@@ -33,6 +60,6 @@ public class Jugador {
     
     @Override
     public String toString() {
-        return this.nombre + (this.mojado ? " mojado" : " seco");
+        return this.nombre + (this.mojado? " esta mojado" : " esta seco");
     }
 }

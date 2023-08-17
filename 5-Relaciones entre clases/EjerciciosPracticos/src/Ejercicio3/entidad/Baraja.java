@@ -39,7 +39,7 @@ public class Baraja {
         //Devuelve la siguiente carta de la lista y la elimina de la lista 
         
         if (cartas.isEmpty()) { 
-            System.out.println("No hay más cartas en la baraja.");
+            System.out.println("\nNo hay más cartas en la baraja.");
             return null;
         }
         return cartas.remove(0);
@@ -60,7 +60,7 @@ public class Baraja {
         //Si no hay suficientes cartas, imprime mensaje de error
         
         if (cantidad > cartas.size()) {
-            System.out.println("No hay suficientes cartas disponibles.");
+            System.out.println("\nNo hay suficientes cartas disponibles.");
             return cartasEntregadas;
         }
         for (int i = 0; i < cantidad; i++) {
@@ -73,10 +73,10 @@ public class Baraja {
     public void cartasMonton(List<Carta> cartas) {
         //Toma una lista de cartas como entrada y muestra las cartas del monton (que han salido)
         if (cartas.isEmpty()) {
-            System.out.println("Aún no ha salido ninguna carta.");
+            System.out.println("\nAún no ha salido ninguna carta.");
             return;
         }
-        System.out.println("Cartas en el montón:");
+        System.out.println("\nCartas en el montón:");
         for (Carta carta : cartas) {
             System.out.println(carta);
         }
@@ -85,7 +85,7 @@ public class Baraja {
     //Metodo mostrar baraja
     public void mostrarBaraja() {
         //Muestra la cantidad de cartas existentes en la baraja
-        System.out.println("Cartas en la baraja:");
+        System.out.println("\nCartas en la baraja:");
         for (Carta carta : cartas) {
             System.out.println(carta);
         }

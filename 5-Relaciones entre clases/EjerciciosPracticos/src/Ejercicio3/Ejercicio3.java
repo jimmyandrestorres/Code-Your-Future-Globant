@@ -25,11 +25,12 @@ import Ejercicio3.entidad.Baraja;
 import Ejercicio3.entidad.Carta;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 public class Ejercicio3 {
 
    
     public static void main(String[] args) {
-        
+        /*
         //Se crea una baraja de cartas
         Baraja baraja = new Baraja();
         //Se barajan las cartas 
@@ -56,5 +57,74 @@ public class Ejercicio3 {
         
         //Se muestra el contenido de cartas restantes de la baraja
         baraja.mostrarBaraja();
+    }
+}*/
+        Scanner scanner = new Scanner(System.in);
+        
+        //Se crea la nueva baraja
+        Baraja baraja = new Baraja();
+        //Se reparten las cartas
+        baraja.barajar();
+        //Lista que contendra las cartas tomadas/repartidas
+        List<Carta> monton = new ArrayList<>();
+
+        //Bucle menú interactivo (do-while)
+        int opcion;
+        do {
+            System.out.println("\n--- Menú ---");
+            System.out.println("1. Mostrar cartas disponibles");
+            System.out.println("2. Tomar siguiente carta");
+            System.out.println("3. Mostrar cartas en el montón");
+            System.out.println("4. Tomar cartas del montón");
+            System.out.println("5. Mostrar baraja completa");
+            System.out.println("0. Salir");
+            System.out.print("\nSeleccione una opción: ");
+            opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    //Muestra el numero de cartas disponibles del objeto (baraja)
+                    System.out.println("\nCartas disponibles: " + baraja.cartasDisponibles());
+                    break;
+                case 2:
+                    //Toma una carta de la baraja y la agrega al montón de cartas tomadas/repartidas
+                    Carta siguiente = baraja.siguienteCarta();
+                    if (siguiente != null) {
+                        //si no quedan cartas, imprime un mensaje.
+                        monton.add(siguiente);
+                        System.out.println("\nCarta tomada: " + siguiente);                        
+                    }
+                    break;
+                case 3:
+                    //Muestra las cartas que tenemos en poseción dentro del montón.
+                    baraja.cartasMonton(monton);
+                    break;
+                case 4:
+                    //Permite al usuario elegir cuantas cartas desea elegir del montón                    
+                    System.out.print("\nIngrese el número de cartas a tomar del montón: ");
+                    int numCartas = scanner.nextInt();
+                    List<Carta> cartasTomadas = baraja.darCartas(numCartas);
+                    monton.addAll(cartasTomadas);
+                    //Muestra el total de cartas existentes en el montón.
+                    System.out.println("\nCartas tomadas del montón:");
+                    for (Carta carta : cartasTomadas) {
+                        System.out.println(carta);
+                    }
+                    break;
+                case 5:
+                    //Muestra la cantidad de cartas existentes en la baraja que no se han repartido
+                    baraja.mostrarBaraja();
+                    break;
+                case 0:
+                    //Sale del programa
+                    System.out.println("\nSaliendo del programa.");
+                    break;
+                default:
+                    //opcion invalida
+                    System.out.println("\nOpción inválida. Por favor, seleccione una opción válida.");
+                    break;
+            }
+        } while (opcion != 0);
+
     }
 }

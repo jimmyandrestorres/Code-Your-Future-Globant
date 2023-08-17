@@ -42,12 +42,16 @@ Pensar la lógica necesaria para realizar esto, usando los atributos de la clase
 
 package Ejercicio2;
 import Ejercicio2.entidad.Juego;
+import Ejercicio2.entidad.Jugador;
+import java.util.Scanner;
+
 
 
 public class Ejercicio2 {
 
    
     public static void main(String[] args) {
+        /*
         //creacion del objeto juego
         Juego juego = new Juego(6); // El nro de jugadores puede variar (6 max)        
         System.out.println("Empezando el juego:");
@@ -60,5 +64,53 @@ public class Ejercicio2 {
             juego.ronda();
             ronda++;
         } while (juego.revolver.mojar() == false);
+    }
+}
+*/
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("\n¡Bienvenido a la Ruleta Rusa de Agua!");
+        System.out.print("\nIngresa el número de jugadores (entre 1 y 6): ");
+        int numJugadores = scanner.nextInt();
+        
+        Juego juego = new Juego(numJugadores);
+        
+        System.out.println("\nComienza el juego:");
+        int ronda = 1;
+        
+        while (!juego.revolver.mojar()) {
+            System.out.println("\nRonda " + ronda);
+            System.out.println("1. Disparar");
+            System.out.println("2. Mostrar estado de la ruleta y jugadores");
+            System.out.println("3. Salir");
+            System.out.print("\nElige una opción: ");
+            int opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1:
+                    juego.ronda();                    
+                    break;
+                case 2:
+                    System.out.println(juego.revolver);
+                    for (Jugador jugador : juego.jugadores) {
+                        System.out.println(jugador);
+                    }
+                    break;
+                case 3:
+                    System.out.println("\nSaliendo del juego.");
+                    return;
+                default:
+                    System.out.println("\nOpción inválida.");
+                    ronda++;
+            }                       
+        }
+        
+        System.out.println("\n¡La ruleta ha mojado a alguien! El juego ha terminado.");
+        for (Jugador jugador : juego.jugadores) {
+           if (jugador.getMojado()) {
+                System.out.println("\nEl "+ jugador);
+                break;
+            }
+        }
     }
 }
